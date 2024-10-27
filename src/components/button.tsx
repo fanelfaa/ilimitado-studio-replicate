@@ -32,4 +32,4 @@ export const Button = ({
       </span>
     </a>
   );
-}
+};

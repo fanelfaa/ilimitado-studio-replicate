@@ -1,6 +1,9 @@
 export const Header = () => {
   return (
-    <header className="py-11 fixed top-0 inset-x-0" style={{mixBlendMode: "difference"}}>
+    <header
+      className="py-11 fixed top-0 inset-x-0"
+      style={{ mixBlendMode: "difference" }}
+    >
       <div className="px-11 h-[120px] flex justify-between items-center">
         <a className="font-sinisuka text-[48px]">Ilimitado Studio</a>
         <button className="size-9 overflow-hidden">

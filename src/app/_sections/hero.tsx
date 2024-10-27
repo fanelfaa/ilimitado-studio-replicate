@@ -79,9 +79,9 @@ export function HeroSection() {
       <div className="py-[120px]">
         <div className="flex flex-row flex-nowrap">
           {Array.from(Array(2).keys()).map((index) => (
-            <motion.div
+            <motion.a
               key={`duplicate-${index}`}
-              className="flex will-change-transform"
+              className="flex will-change-transform has-image"
               style={{ transform: marqueeTransform }}
             >
               {Array.from(Array(8).keys()).map((i) => (
@@ -95,7 +95,7 @@ export function HeroSection() {
                   {i + 1}
                 </div>
               ))}
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

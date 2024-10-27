@@ -1,4 +1,4 @@
-import { addIconSelectors } from '@iconify/tailwind'
+import { addIconSelectors } from "@iconify/tailwind";
 import type { Config } from "tailwindcss";
 
 const config: Config = {
@@ -12,33 +12,33 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "#f5cb5c"
+        primary: "#f5cb5c",
       },
       fontFamily: {
         sinisuka: "var(--font-sinisuka)",
       },
-      container:{
+      container: {
         center: true,
       },
-      keyframes:{
-        'scroll-left': {
-          from: { transform: 'translateX(0%)' },
-          to: { transform: 'translateX(-100%)' },
+      keyframes: {
+        "scroll-left": {
+          from: { transform: "translateX(0%)" },
+          to: { transform: "translateX(-100%)" },
         },
       },
-      animation:{
-        'scroll-left': 'scroll-left linear infinite',
+      animation: {
+        "scroll-left": "scroll-left linear infinite",
       },
-      screens:{
-        xl: '1200px',
-        '2xl': '1440px',
-      }
+      screens: {
+        xl: "1200px",
+        "2xl": "1440px",
+      },
     },
   },
   plugins: [
     addIconSelectors({
-      prefixes: ['ion']
-    })
+      prefixes: ["ion"],
+    }),
   ],
 };
 export default config;

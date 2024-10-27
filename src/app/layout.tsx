@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/header";
 import { ReactLenis } from "lenis/react";
 
+import { Cursor } from "@/components/cursor";
 import { Montserrat } from "next/font/google";
 
 const sinisuka = localFont({
@@ -33,6 +34,7 @@ export default function RootLayout({
       >
         <Header />
         <ReactLenis root>{children}</ReactLenis>
+        <Cursor />
       </body>
     </html>
   );

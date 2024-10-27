@@ -20,6 +20,10 @@ body {
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
 }
 
-span{
+span {
   display: inline-block;
+}
+
+a, button{
+  cursor: pointer;
 }

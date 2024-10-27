@@ -1,0 +1,59 @@
+.cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.cursor::before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  top: -30px;
+  left: -30px;
+  border-radius: 100%;
+  background-color: #f5cb5c;
+  transform: scale(0.3);
+  transition: transform .3s cubic-bezier(0.51, 0.18, 0, 0.88), opacity .3s
+    cubic-bezier(0.51, 0.18, 0, 0.88);
+}
+
+.cursor.-hidden::before {
+  opacity: 0;
+  transform: scale(0.3);
+}
+.cursor.-pointer::before {
+  opacity: 1;
+  transform: scale(0.15);
+}
+.cursor.-pointer.-target-image::before {
+  opacity: 1;
+  transform: scale(2);
+}
+
+.cursor .text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  text-align: center;
+  height: 60px;
+  width: 60px;
+  top: -30px;
+  left: -30px;
+  transform: scale(0) rotate(-30deg);
+  font-family: var(--font-sinisuka);
+  font-size: 24px;
+  line-height: 1em;
+  color: #0a0a0a;
+  transition: transform .3s cubic-bezier(0.51, 0.18, 0, 0.88), opacity .3s
+    cubic-bezier(0.51, 0.18, 0, 0.88);
+}
+
+.cursor.-pointer.-target-image .text {
+  transform: scale(1) rotate(0);
+  opacity: 1;
+}
