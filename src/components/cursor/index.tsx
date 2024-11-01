@@ -55,8 +55,8 @@ export function Cursor() {
     };
   }, []);
 
-  const x = useSpring(mouseX, { mass: 0.5 });
-  const y = useSpring(mouseY, { mass: 0.5 });
+  const x = useSpring(mouseX, { mass: 0.2 });
+  const y = useSpring(mouseY, { mass: 0.2 });
 
   return (
     <motion.div

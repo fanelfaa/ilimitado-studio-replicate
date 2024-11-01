@@ -8,22 +8,30 @@ import {
   useMotionTemplate,
   useMotionValue,
   useScroll,
+  useTransform,
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 const SPEED = 3;
 
 export function HeroSection() {
-  const translateX = useMotionValue(0);
+  const sectionRef = useRef(null)
+  const marqueX = useMotionValue(0);
   const scrollYHistory = useRef(0);
   const [isReverse, setIsReverse] = useState<boolean>(true);
 
-  const { scrollY } = useScroll({
+  const windowScroll = useScroll({
     layoutEffect: false,
   });
 
+  const sectionScroll = useScroll({
+    layoutEffect: false,
+    target: sectionRef,
+    offset: ["start start", "end start"]
+  });
+
   useEffect(() => {
-    scrollY.on("change", (v) => {
+    windowScroll.scrollY.on("change", (v) => {
       if (scrollYHistory.current < v) {
         setIsReverse(false);
       } else {
@@ -31,32 +39,34 @@ export function HeroSection() {
       }
       scrollYHistory.current = v;
     });
-  }, [scrollY]);
+  }, [windowScroll.scrollY]);
 
   useAnimationFrame((_, d) => {
     const dt = (d / 1000) * SPEED;
 
     if (isReverse) {
-      const next = translateX.get() + dt;
+      const next = marqueX.get() + dt;
       if (next > 0) {
-        translateX.set(next - 100);
+        marqueX.set(next - 100);
       } else {
-        translateX.set(next);
+        marqueX.set(next);
       }
     } else {
-      const next = translateX.get() - dt;
+      const next = marqueX.get() - dt;
       if (next < -100) {
-        translateX.set(next + 100);
+        marqueX.set(next + 100);
       } else {
-        translateX.set(next);
+        marqueX.set(next);
       }
     }
   });
 
-  const marqueeTransform = useMotionTemplate`translateX(${translateX}%)`;
+  const marqueeTransform = useMotionTemplate`translateX(${marqueX}%)`;
+
+  const sectionX = useTransform(sectionScroll.scrollYProgress, [0, 1], ['0%', '-50%']);
 
   return (
-    <section className="overflow-hidden">
+    <section className="overflow-hidden pt-[330px]">
       <div className="container px-11 grid grid-cols-12">
         <div className="flex flex-col items-center justify-start px-4 col-span-10 col-start-2">
           <h6>Webflow, WordPress, WooCommerce.</h6>
@@ -77,7 +87,10 @@ export function HeroSection() {
         </div>
       </div>
       <div className="py-[120px]">
-        <div className="flex flex-row flex-nowrap">
+        <motion.div
+          className="flex flex-row flex-nowrap"
+          style={{ x: sectionX }}
+        >
           {Array.from(Array(2).keys()).map((index) => (
             <motion.a
               key={`duplicate-${index}`}
@@ -97,7 +110,7 @@ export function HeroSection() {
               ))}
             </motion.a>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

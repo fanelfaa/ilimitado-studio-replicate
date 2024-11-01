@@ -1,7 +1,7 @@
 export const Header = () => {
   return (
     <header
-      className="py-11 fixed top-0 inset-x-0"
+      className="py-11 fixed top-0 inset-x-0 z-50"
       style={{ mixBlendMode: "difference" }}
     >
       <div className="px-11 h-[120px] flex justify-between items-center">
