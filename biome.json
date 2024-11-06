@@ -26,7 +26,8 @@
         "useButtonType": "off"
       },
       "style": {
-        "noNonNullAssertion": "warn"
+        "noNonNullAssertion": "warn",
+        "useSelfClosingElements": "warn"
       }
     }
   },

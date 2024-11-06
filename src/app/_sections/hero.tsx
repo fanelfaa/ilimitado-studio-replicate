@@ -15,7 +15,7 @@ import { useEffect, useRef, useState } from "react";
 const SPEED = 3;
 
 export function HeroSection() {
-  const sectionRef = useRef(null)
+  const sectionRef = useRef(null);
   const marqueX = useMotionValue(0);
   const scrollYHistory = useRef(0);
   const [isReverse, setIsReverse] = useState<boolean>(true);
@@ -27,7 +27,7 @@ export function HeroSection() {
   const sectionScroll = useScroll({
     layoutEffect: false,
     target: sectionRef,
-    offset: ["start start", "end start"]
+    offset: ["start start", "end start"],
   });
 
   useEffect(() => {
@@ -63,7 +63,11 @@ export function HeroSection() {
 
   const marqueeTransform = useMotionTemplate`translateX(${marqueX}%)`;
 
-  const sectionX = useTransform(sectionScroll.scrollYProgress, [0, 1], ['0%', '-50%']);
+  const sectionX = useTransform(
+    sectionScroll.scrollYProgress,
+    [0, 1],
+    ["0%", "-50%"],
+  );
 
   return (
     <section className="overflow-hidden pt-[330px]">

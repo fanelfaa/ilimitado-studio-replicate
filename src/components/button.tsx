@@ -4,7 +4,12 @@ import type { ReactNode } from "react";
 export const Button = ({
   children,
   type,
-}: { children: ReactNode; type: "primary" | "secondary" }) => {
+  className,
+}: {
+  children: ReactNode;
+  type: "primary" | "secondary";
+  className?: string;
+}) => {
   return (
     <a
       style={{ boxSizing: "border-box" }}
@@ -15,6 +20,7 @@ export const Button = ({
           "bg-[#242423] text-foreground hover:text-background":
             type === "secondary",
         },
+        className,
       )}
     >
       <span
