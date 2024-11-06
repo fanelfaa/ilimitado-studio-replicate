@@ -70,10 +70,10 @@ export function HeroSection() {
       <div className="container px-11 grid grid-cols-12">
         <div className="flex flex-col items-center justify-start px-4 col-span-10 col-start-2">
           <h6>Webflow, WordPress, WooCommerce.</h6>
-          <h1 className="[&_span]:font-sinisuka text-[64px] text-center mt-8 leading-[74px] font-semibold">
+          <h2 className="[&_span]:font-sinisuka text-[64px] text-center mt-8 leading-[74px] font-semibold">
             We build the <span>websites</span> your <span>competitors</span>{" "}
             wish they had.
-          </h1>
+          </h2>
           <div className="flex justify-center mt-16 gap-x-8">
             <Button type="primary">
               Hire Us{" "}
