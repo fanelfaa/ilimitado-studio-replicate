@@ -49,7 +49,7 @@ export function OurServicesSection() {
           </p>
         </div>
       </div>
-      <div className="overflow-hidden">
+      <div className="overflow-hidden mb-[120px]">
         <motion.div className="max-w-full" style={{ x: sectionX }}>
           <div className="grid grid-cols-12 gap-x-[30px]">
             <div
@@ -177,6 +177,28 @@ export function OurServicesSection() {
             </div>
           </div>
         </motion.div>
+      </div>
+      <div className="container max-w-screen-xl pb-[120px]">
+        <h2 className="font-semibold text-[56px] leading-[66px] text-center [&_span]:text-[#4b4e4b]">
+          <small>
+            A decade in the industry, a century of clients — we've seen and done
+            it all. Let us guide you from{" "}
+            <span>
+              web zero
+              <sup>
+                <span className="iconify ion--skull-outline" />
+              </sup>
+            </span>{" "}
+            to{" "}
+            <span>
+              web hero
+              <sup>
+                <span className="iconify ion--rocket-outline" />
+              </sup>
+            </span>
+            .
+          </small>
+        </h2>
       </div>
     </section>
   );
