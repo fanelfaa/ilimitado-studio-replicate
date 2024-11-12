@@ -18,7 +18,7 @@ export function WhatWeveDoneSection() {
     offset: ["start end", "end start"],
   });
   return (
-    <section className="pt-[120px]" ref={ref}>
+    <section className="py-[120px]" ref={ref}>
       <div className="container px-11 py-[120px] grid grid-cols-12">
         <div className="flex flex-col items-center justify-start px-4 col-span-10 col-start-2">
           <h2>Our Projects</h2>
