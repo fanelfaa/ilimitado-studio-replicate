@@ -28,6 +28,9 @@
       "style": {
         "noNonNullAssertion": "warn",
         "useSelfClosingElements": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "error"
       }
     }
   },

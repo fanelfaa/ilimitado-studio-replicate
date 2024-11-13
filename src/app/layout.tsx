@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sinisuka.variable} ${montserrat.className} antialiased overflow-hidden`}
+        className={`${sinisuka.variable} ${montserrat.className} antialiased`}
       >
         <Header />
         <ReactLenis root>{children}</ReactLenis>

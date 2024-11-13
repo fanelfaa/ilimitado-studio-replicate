@@ -5,33 +5,37 @@ import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 
 export function ProjectSpotlightSection() {
-    const id = useId()
-const sectionRef = useRef(null)
-const itemWrapperRef = useRef<HTMLDivElement>(null)
-const [itemWrapperWidth, setItemWrapperWidth] = useState(0)
+  const id = useId();
+  const sectionRef = useRef(null);
+  const itemWrapperRef = useRef<HTMLDivElement>(null);
+  const [itemWrapperWidth, setItemWrapperWidth] = useState(0);
 
-useEffect(()=>{
-    function updateWidth(){
-        if(itemWrapperRef.current){
-            const w = itemWrapperRef.current.getBoundingClientRect().width
-            setItemWrapperWidth(w);
-        }
+  useEffect(() => {
+    function updateWidth() {
+      if (itemWrapperRef.current) {
+        const w = itemWrapperRef.current.getBoundingClientRect().width;
+        setItemWrapperWidth(w);
+      }
     }
     updateWidth();
 
-    document.addEventListener("resize", updateWidth)
-    return ()=>{
-        document.removeEventListener("resize", updateWidth)
-    }
-},[])
+    document.addEventListener("resize", updateWidth);
+    return () => {
+      document.removeEventListener("resize", updateWidth);
+    };
+  }, []);
 
-const {scrollYProgress} = useScroll({
-  target: sectionRef,
-  layoutEffect: false,
-  offset: ["start start", "end end"]
-});
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    layoutEffect: false,
+    offset: ["start start", "end end"],
+  });
 
-const itemWrapperX = useTransform(scrollYProgress, [0,1], [0, -(itemWrapperWidth - window.innerWidth)])
+  const itemWrapperX = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [0, -(itemWrapperWidth - window.innerWidth)],
+  );
 
   return (
     <section
@@ -98,8 +102,23 @@ function Card() {
       style={{ maxWidth: 777, marginInline: "6vw" }}
     >
       <div className="rounded-[30px] w-full h-full bg-pink-400 relative overflow-hidden">
-        <Image sizes="100vw" src="https://ilimitado.studio/assets/images/webp/kali-beauty_project-spotlight_logo-exploration_thumbnail.webp" alt="A" width={0} height={0} style={{width: '100%', height: 'auto'}} />
+        <Image
+          sizes="100vw"
+          src="https://ilimitado.studio/assets/images/webp/kali-beauty_project-spotlight_loyalty-cards-v2_thumbnail.webp"
+          alt="A"
+          width={0}
+          height={0}
+          style={{ width: "100%", height: "auto" }}
+        />
       </div>
+      <a
+        className="absolute bottom-[30px] right-[-30px] size-[120px] rounded-full grid place-content-center bg-black/0"
+        style={{
+          backdropFilter: "blur(15px)",
+        }}
+      >
+        <span className="iconify ion--search-outline text-[32px]" />
+      </a>
     </div>
   );
 }
