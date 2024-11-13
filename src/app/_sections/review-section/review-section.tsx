@@ -142,8 +142,8 @@ function LinkGoogle({
   const springBgY = useSpring(bgY, { stiffness: 200, mass: 1 });
   const textX = useMotionValue(0);
   const textY = useMotionValue(0);
-  const springTextX = useSpring(textX, { stiffness: 200, mass: 1 });
-  const springTextY = useSpring(textY, { stiffness: 200, mass: 1 });
+  const springTextX = useSpring(textX, { stiffness: 100, mass: 0.6 });
+  const springTextY = useSpring(textY, { stiffness: 100, mass: 0.6 });
 
   const x = useTransform(sectionProgress, [0.3, 1], ["-250%", "250%"]);
   return (
@@ -166,14 +166,6 @@ function LinkGoogle({
       </motion.span>
       <motion.span
         className="absolute inset-0 rounded-full bg-primary overflow-clip"
-        onHoverStart={() => {
-          controls.start("hoverEnter");
-        }}
-        onHoverEnd={() => {
-          controls.start("hoverLeave").then(() => {
-            controls.start("initial");
-          });
-        }}
         style={{
           x: springBgX,
           y: springBgY,
@@ -225,6 +217,12 @@ function LinkGoogle({
           bgY.set(0);
           textX.set(0);
           textY.set(0);
+          controls.start("hoverLeave").then(() => {
+            controls.start("initial");
+          });
+        }}
+        onMouseEnter={() => {
+          controls.start("hoverEnter");
         }}
       />
     </motion.a>

@@ -31,10 +31,12 @@ export function ProjectSpotlightSection() {
     offset: ["start start", "end end"],
   });
 
+  const innerWidth = typeof window !== "undefined" ? window.innerWidth : 0;
+
   const itemWrapperX = useTransform(
     scrollYProgress,
     [0, 1],
-    [0, -(itemWrapperWidth - window.innerWidth)],
+    [0, -(itemWrapperWidth - innerWidth)],
   );
 
   return (
