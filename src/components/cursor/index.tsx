@@ -7,8 +7,8 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 
 export function Cursor() {
   const [isMouseLeave, setIsMouseLeave] = useState(false);
-  const [isPointer, setIsPointer] = useState(false);
-  const [targetHasImage, setTargetHasImage] = useState(false);
+  // const [isPointer, setIsPointer] = useState(false);
+  // const [targetHasImage, setTargetHasImage] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -17,18 +17,18 @@ export function Cursor() {
       mouseX.set(e.x);
       mouseY.set(e.y);
 
-      const target = e.target as HTMLElement;
+      // const target = e.target as HTMLElement;
 
-      if (!!target.closest("a") || target.tagName === "A") {
-        setIsPointer(true);
-        const el = target.closest("a") || target;
-        setTargetHasImage(el.classList.contains("has-image"));
-      } else if (!!target.closest("button") || target.tagName === "BUTTON") {
-        setIsPointer(true);
-      } else {
-        setIsPointer(false);
-        setTargetHasImage(false);
-      }
+      // if (!!target.closest("a") || target.tagName === "A") {
+      //   setIsPointer(true);
+      //   const el = target.closest("a") || target;
+      //   setTargetHasImage(el.classList.contains("has-image"));
+      // } else if (!!target.closest("button") || target.tagName === "BUTTON") {
+      //   setIsPointer(true);
+      // } else {
+      //   setIsPointer(false);
+      //   setTargetHasImage(false);
+      // }
     }
 
     document.addEventListener("mousemove", onMouseMove);
@@ -64,8 +64,8 @@ export function Cursor() {
         "cursor",
         {
           "-hidden": isMouseLeave,
-          "-pointer": isPointer,
-          "-target-image": targetHasImage,
+          // "-pointer": isPointer,
+          // "-target-image": targetHasImage,
         },
       ])}
       style={{ x, y }}

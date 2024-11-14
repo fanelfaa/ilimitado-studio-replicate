@@ -22,14 +22,16 @@
 }
 
 .cursor.-hidden::before {
-  opacity: 0;
-  transform: scale(0.3);
+  opacity: 0 !important;
+  transform: scale(0.3) !important;
 }
-.cursor.-pointer::before {
+.cursor.-pointer::before,
+body:has(a:hover, button:hover) .cursor::before {
   opacity: 1;
   transform: scale(0.15);
 }
-.cursor.-pointer.-target-image::before {
+.cursor.-pointer.-target-image::before,
+body:has(.has-image:hover) .cursor::before {
   opacity: 1;
   transform: scale(2);
 }
@@ -54,7 +56,8 @@
     cubic-bezier(0.51, 0.18, 0, 0.88);
 }
 
-.cursor.-pointer.-target-image .text {
+.cursor.-pointer.-target-image .text,
+body:has(.has-image:hover) .cursor .text {
   transform: scale(1) rotate(0);
   opacity: 1;
 }
