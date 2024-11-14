@@ -20,7 +20,8 @@ body {
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
 }
 
-span {
+span,
+a {
   display: inline-block;
 }
 

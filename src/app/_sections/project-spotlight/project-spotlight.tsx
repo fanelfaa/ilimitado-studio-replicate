@@ -67,8 +67,8 @@ export function ProjectSpotlightSection() {
               Ireland, offering a wide variety of nail (acrylic, gel and BIAB),
               eyebrow, eyelash and waxing treatments.
             </p>
-            <span
-              className="relative text_transform text-base mt-8 ml-8 text-[#4b4e4b] overflow-clip"
+            <a
+              className="relative text_transform text-base mt-8 ml-8 text-[#4b4e4b] overflow-clip group"
               data-replace="View Project"
             >
               <span className="group-hover:-translate-y-full transition-transform duration-500">
@@ -86,7 +86,7 @@ export function ProjectSpotlightSection() {
               >
                 View Project
               </span>
-            </span>
+            </a>
           </div>
           {Array.from(Array(7).keys()).map((it) => (
             <Card key={`${id}project-card-${it}`} />
