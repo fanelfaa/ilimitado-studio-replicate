@@ -1,4 +1,5 @@
 import { HeroSection } from "./_sections/hero";
+import { LogofolioSection } from "./_sections/logofolio";
 import { OurServicesSection } from "./_sections/our-services";
 import { ProjectSpotlightSection } from "./_sections/project-spotlight";
 import { ReviewSection } from "./_sections/review-section";
@@ -14,6 +15,7 @@ export default function Home() {
       <WhatWeveDoneSection />
       <ProjectSpotlightSection />
       <ReviewSection />
+      <LogofolioSection />
       <div className="h-screen" />
     </main>
   );
