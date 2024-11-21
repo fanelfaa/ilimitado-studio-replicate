@@ -6,10 +6,10 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-type Options = {speed?: number}
+type Options = { speed?: number };
 
-export function useMarque(options?:Options) {
-  const opt = {speed: 3, ...options}
+export function useMarque(options?: Options) {
+  const opt = { speed: 3, ...options };
   const marqueX = useMotionValue(0);
   const scrollYHistory = useRef(0);
   const [isReverse, setIsReverse] = useState<boolean>(true);

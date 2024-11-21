@@ -22,7 +22,7 @@ export function WhatWeveDoneSection() {
   const { transform: marqueeTransform } = useMarque({ speed: 1 });
   return (
     <section className="py-[120px] relative" ref={ref}>
-      <div className="py-[120px] absolute z-0 top-1/2">
+      <div className="py-[120px] absolute z-0 top-1/2 max-w-full overflow-hidden">
         <motion.div className="flex flex-row flex-nowrap">
           {Array.from(Array(2).keys()).map((index) => (
             <motion.div
