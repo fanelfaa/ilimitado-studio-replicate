@@ -1,5 +1,6 @@
 "use client";
 
+import { useMarque } from "@/components/marque";
 import {
   type MotionValue,
   motion,
@@ -17,8 +18,25 @@ export function WhatWeveDoneSection() {
     layoutEffect: false,
     offset: ["start end", "end start"],
   });
+
+  const { transform: marqueeTransform } = useMarque({ speed: 1 });
   return (
-    <section className="py-[120px]" ref={ref}>
+    <section className="py-[120px] relative" ref={ref}>
+      <div className="py-[120px] absolute z-0 top-1/2">
+        <motion.div className="flex flex-row flex-nowrap">
+          {Array.from(Array(2).keys()).map((index) => (
+            <motion.div
+              key={`duplicate-${index}`}
+              className="flex will-change-transform text-[240px] leading-none font-sinisuka text-nowrap"
+              style={{ transform: marqueeTransform, color: "rgb(36, 36, 35)" }}
+            >
+              {Array.from(Array(4).keys()).map((i) => (
+                <span key={i}>We Build Good Thing&nbsp;</span>
+              ))}
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
       <div className="container px-11 py-[120px] grid grid-cols-12">
         <div className="flex flex-col items-center justify-start px-4 col-span-10 col-start-2">
           <h2>Our Projects</h2>

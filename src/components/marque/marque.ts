@@ -6,9 +6,10 @@ import {
 } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
-const SPEED = 3;
+type Options = {speed?: number}
 
-export function useMarque() {
+export function useMarque(options?:Options) {
+  const opt = {speed: 3, ...options}
   const marqueX = useMotionValue(0);
   const scrollYHistory = useRef(0);
   const [isReverse, setIsReverse] = useState<boolean>(true);
@@ -29,7 +30,7 @@ export function useMarque() {
   }, [windowScroll.scrollY]);
 
   useAnimationFrame((_, d) => {
-    const dt = (d / 1000) * SPEED;
+    const dt = (d / 1000) * opt.speed;
 
     if (isReverse) {
       const next = marqueX.get() + dt;
